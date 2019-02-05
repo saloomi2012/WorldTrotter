@@ -37,7 +37,7 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
             return false
         } else if replacementTextHasAlphabeticCharacter != nil {
             return false
-      } else if replacementTextHasPunctuatxon != nil {
+      } else if replacementTextHasPunctuation != nil {
             if(replacementTextHasDecimalSeparator != nil) {
                 return true
             }
