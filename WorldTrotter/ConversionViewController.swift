@@ -31,13 +31,15 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
         let replacementTextHasAlphabeticCharacter = string.rangeOfCharacter(from: NSCharacterSet.letters)
         let replacementTextHasPunctuation = string.rangeOfCharacter(from: NSCharacterSet.punctuationCharacters)
         let replacementTextHasSymbols = string.rangeOfCharacter(from: NSCharacterSet.symbols)
+        let replacementTextHasWhiteSpace = string.rangeOfCharacter(from: NSCharacterSet.whitespaces)
         
         if existingTextHasDecimalSeparator != nil,
             replacementTextHasDecimalSeparator != nil {
             return false
         } else if replacementTextHasAlphabeticCharacter != nil {
             return false
-      } else if replacementTextHasPunctuation != nil {
+            
+        } else if replacementTextHasPunctuation != nil {
             if(replacementTextHasDecimalSeparator != nil) {
                 return true
             }
@@ -45,6 +47,8 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
                 return false
             }
         } else if replacementTextHasSymbols != nil {
+            return false
+        } else if replacementTextHasWhiteSpace != nil {
             return false
         } else {
             return true
