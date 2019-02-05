@@ -27,16 +27,27 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String ) -> Bool {
         let existingTextHasDecimalSeparator = textField.text?.range(of: ".")
         let replacementTextHasDecimalSeparator = string.range(of: ".")
+        
         let replacementTextHasAlphabeticCharacter = string.rangeOfCharacter(from: NSCharacterSet.letters)
+        let replacementTextHasPunctuation = string.rangeOfCharacter(from: NSCharacterSet.punctuationCharacters)
+        let replacementTextHasSymbols = string.rangeOfCharacter(from: NSCharacterSet.symbols)
         
         if existingTextHasDecimalSeparator != nil,
-            replacementTextHasDecimalSeparator != nil{
+            replacementTextHasDecimalSeparator != nil {
             return false
         } else if replacementTextHasAlphabeticCharacter != nil {
             return false
+      } else if replacementTextHasPunctuatxon != nil {
+            if(replacementTextHasDecimalSeparator != nil) {
+                return true
+            }
+            else {
+                return false
+            }
+        } else if replacementTextHasSymbols != nil {
+            return false
         } else {
             return true
-            
         }
     }
     
