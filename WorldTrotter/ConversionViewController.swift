@@ -18,6 +18,7 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
         }
     }
     var celsiusValue: Measurement<UnitTemperature>? {
+        
         if let fahrenheitValue = fahrenheitValue {
             return fahrenheitValue.converted(to: .celsius)
         } else {
@@ -27,20 +28,25 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String ) -> Bool {
         let existingTextHasDecimalSeparator = textField.text?.range(of: ".")
         let replacementTextHasDecimalSeparator = string.range(of: ".")
+        let existingTextHasDash = textField.text?.range(of: "-")
+        let replacementTextHasDash = string.range(of: "-")
         
         let replacementTextHasAlphabeticCharacter = string.rangeOfCharacter(from: NSCharacterSet.letters)
         let replacementTextHasPunctuation = string.rangeOfCharacter(from: NSCharacterSet.punctuationCharacters)
         let replacementTextHasSymbols = string.rangeOfCharacter(from: NSCharacterSet.symbols)
         let replacementTextHasWhiteSpace = string.rangeOfCharacter(from: NSCharacterSet.whitespaces)
         
-        if existingTextHasDecimalSeparator != nil,
-            replacementTextHasDecimalSeparator != nil {
+        if existingTextHasDecimalSeparator != nil, replacementTextHasDecimalSeparator != nil {
+            return false
+        } else if existingTextHasDash != nil, replacementTextHasDash != nil {
             return false
         } else if replacementTextHasAlphabeticCharacter != nil {
             return false
             
         } else if replacementTextHasPunctuation != nil {
-            if(replacementTextHasDecimalSeparator != nil) {
+            if(replacementTextHasDecimalSeparator != nil ) {
+                return true
+            } else if(replacementTextHasDash != nil && textField.text?.count == 0) {
                 return true
             }
             else {
@@ -77,7 +83,9 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
     }
     
     func updateCelsiusLabel() {
+        
         if let celsiusValue = celsiusValue {
+            print(celsiusValue)
             celsiusLabel.text = numberFormatter.string(from: NSNumber(value: celsiusValue.value))
         } else {
             celsiusLabel.text = "???"
