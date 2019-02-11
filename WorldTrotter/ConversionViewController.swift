@@ -85,7 +85,7 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
     func updateCelsiusLabel() {
         
         if let celsiusValue = celsiusValue {
-            print(celsiusValue)
+            //print(celsiusValue)
             celsiusLabel.text = numberFormatter.string(from: NSNumber(value: celsiusValue.value))
         } else {
             celsiusLabel.text = "???"
@@ -94,8 +94,21 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("Conversion Loaded!")
         updateCelsiusLabel()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        let date = Date()
+        let calendar = Calendar.current
+        let hour = calendar.component(.hour, from: date)
+        let def = UIColor(displayP3Red: 0xF5/0xFF, green: 0xF4/0xFF, blue: 0xF1/0xFF, alpha: 1)
+        
+        if(hour > 18) {
+            self.view.backgroundColor = UIColor(displayP3Red: 30/255, green: 30/255, blue: 30/255, alpha: 1)
+        } else {
+            self.view.backgroundColor = def
+        }
     }
     
 }
