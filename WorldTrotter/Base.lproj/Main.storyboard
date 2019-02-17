@@ -104,6 +104,38 @@
             </objects>
             <point key="canvasLocation" x="1797.5999999999999" y="29.23538230884558"/>
         </scene>
+        <!--Web-->
+        <scene sceneID="YaA-4r-aVI">
+            <objects>
+                <viewController id="LPp-2E-hPs" customClass="WebViewController" customModule="WorldTrotter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zWp-Yc-xz5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cXW-Go-X7E">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="cXW-Go-X7E" firstAttribute="leading" secondItem="zWp-Yc-xz5" secondAttribute="leading" id="4ZU-FS-HTU"/>
+                            <constraint firstAttribute="trailing" secondItem="cXW-Go-X7E" secondAttribute="trailing" id="9HM-Ig-W6A"/>
+                            <constraint firstItem="cXW-Go-X7E" firstAttribute="bottom" secondItem="fr9-HE-bzG" secondAttribute="bottom" id="PKQ-Md-ORW"/>
+                            <constraint firstItem="cXW-Go-X7E" firstAttribute="top" secondItem="zWp-Yc-xz5" secondAttribute="top" id="ZsG-C7-yBh"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="fr9-HE-bzG"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Web" image="WebIcon" id="90h-bb-Nu2"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DIK-te-k1c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="856.25" y="761.71875"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="jmf-A2-gGa">
             <objects>
@@ -117,6 +149,7 @@
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="DxM-Dl-Yg7"/>
                         <segue destination="MPK-Hw-ghj" kind="relationship" relationship="viewControllers" id="hrV-qo-So9"/>
+                        <segue destination="LPp-2E-hPs" kind="relationship" relationship="viewControllers" id="03B-TV-N4f"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lcI-bc-9AA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -127,5 +160,6 @@
     <resources>
         <image name="ConvertIcon" width="48.5" height="32.5"/>
         <image name="MapIcon" width="48.5" height="32.5"/>
+        <image name="WebIcon" width="65" height="65"/>
     </resources>
 </document>

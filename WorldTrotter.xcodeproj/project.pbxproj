@@ -14,6 +14,7 @@
 		3B08A1532208FEFC00BE466F /* ConversionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B08A1522208FEFC00BE466F /* ConversionViewController.swift */; };
 		3B08AC6A2211EE0100F85532 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B08AC692211EE0100F85532 /* MapKit.framework */; };
 		3B08AC6C2211F26C00F85532 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B08AC6B2211F26C00F85532 /* MapViewController.swift */; };
+		3BA1BBFF2219F84000F1B1BF /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA1BBFE2219F84000F1B1BF /* WebViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		3B08A1522208FEFC00BE466F /* ConversionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversionViewController.swift; sourceTree = "<group>"; };
 		3B08AC692211EE0100F85532 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		3B08AC6B2211F26C00F85532 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		3BA1BBFE2219F84000F1B1BF /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 				3B08A14C2208F1B800BE466F /* Info.plist */,
 				3B08A1522208FEFC00BE466F /* ConversionViewController.swift */,
 				3B08AC6B2211F26C00F85532 /* MapViewController.swift */,
+				3BA1BBFE2219F84000F1B1BF /* WebViewController.swift */,
 			);
 			path = WorldTrotter;
 			sourceTree = "<group>";
@@ -154,6 +157,7 @@
 				3B08A1532208FEFC00BE466F /* ConversionViewController.swift in Sources */,
 				3B08AC6C2211F26C00F85532 /* MapViewController.swift in Sources */,
 				3B08A1412208F1B800BE466F /* AppDelegate.swift in Sources */,
+				3BA1BBFF2219F84000F1B1BF /* WebViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
