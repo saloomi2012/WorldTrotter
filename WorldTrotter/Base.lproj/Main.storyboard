@@ -160,6 +160,6 @@
     <resources>
         <image name="ConvertIcon" width="48.5" height="32.5"/>
         <image name="MapIcon" width="48.5" height="32.5"/>
-        <image name="WebIcon" width="65" height="65"/>
+        <image name="WebIcon" width="37.5" height="37.5"/>
     </resources>
 </document>
