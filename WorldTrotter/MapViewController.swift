@@ -48,7 +48,7 @@ class MapViewController : UIViewController {
         
         view.addSubview(pinButton)
         
-        let pinButtonBottom = NSLayoutConstraint(item: pinButton, attribute: .centerY, relatedBy: .equal, toItem: location, attribute: .centerY, multiplier: 1, constant: -20)
+        let pinButtonBottom = NSLayoutConstraint(item: pinButton, attribute: .centerY, relatedBy: .equal, toItem: location, attribute: .centerY, multiplier: 1, constant: -30)
         let pinButtonCenter = NSLayoutConstraint(item: pinButton, attribute: .centerX, relatedBy: .equal, toItem: location, attribute: .centerX, multiplier: 1, constant: 0)
         
         NSLayoutConstraint.activate([pinButtonBottom, pinButtonCenter])
