@@ -20,6 +20,7 @@ class MathViewController: UIViewController {
     @IBOutlet var medal: UIImageView!
     @IBOutlet var answer: UITextField!
     
+    var questionChecked = false
     var questionCount = 0
     var correctCount = 0
     var q: Question!
@@ -31,33 +32,37 @@ class MathViewController: UIViewController {
         q = generateQuestion()
         updateQuestion(q)
         correctCount = 0
+        questionChecked = false
         score.text = "Score: \(correctCount)/\(questionCount)"
         
     }
     
     @IBAction func checkAnswer(_ sender: UIButton) {
         if let ans = Int(answer.text!){
-            if(ans == calculate(q)) {
-                correctCount += 1
-                result.text = "Result: Correct!"
-            } else {
-                result.text = "Result: Incorrect! The answer was \(calculate(q))."
-            }
-            score.text = "Score: \(correctCount)/\(questionCount)"
-            
-            if(questionCount == 10) {
-                switch(correctCount){
-                case 10:
-                    medal.image = UIImage(named: "PlatinumMedal")
-                case 9:
-                    medal.image = UIImage(named: "GoldMedal")
-                default:
-                    medal.image = UIImage(named: "TryMedal")
+            if !questionChecked {
+                if(ans == calculate(q)) {
+                    correctCount += 1
+                    result.text = "Result: Correct!"
+                } else {
+                    result.text = "Result: Incorrect! The answer was \(calculate(q))."
+                }
+                score.text = "Score: \(correctCount)/\(questionCount)"
+                
+                if(questionCount == 10) {
+                    switch(correctCount){
+                    case 10:
+                        medal.image = UIImage(named: "PlatinumMedal")
+                    case 9:
+                        medal.image = UIImage(named: "GoldMedal")
+                    default:
+                        medal.image = UIImage(named: "TryMedal")
+                    }
+                    
                 }
                 
+                questionChecked = true
+            
             }
-            
-            
         }
         
         
@@ -65,13 +70,15 @@ class MathViewController: UIViewController {
     }
     
     @IBAction func nextQuestion(_ sender: Any) {
-        if(questionCount < 10) {
+        if(questionCount < 10 && questionChecked) {
             questionCount += 1
             q = generateQuestion()
             updateQuestion(q)
             score.text = "Score: \(correctCount)/\(questionCount)"
             result.text = "Result:"
             currentQuestion.text = "Question \(questionCount)/10"
+            answer.text = ""
+            questionChecked = false
         }
     }
     @IBAction func newQuiz(_ sender: Any) {
