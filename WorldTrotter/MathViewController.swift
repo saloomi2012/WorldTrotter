@@ -140,53 +140,43 @@ class MathViewController: UIViewController {
     }
     
     func calculate(_ question: Question) -> Int {
-        switch(question.op) {
-        case "+":
-            return question.num1 + question.num2
-        case "-":
-            return question.num1 - question.num2
-        case "*":
-            return question.num1 * question.num2
-        case "/":
-            return question.num1 / question.num2
-        default:
-            return -1111
-        }
+        return doMath(question.num1, question.num2, question.op)
     }
     
     
     
     
-//    func add(_ a: Int, _ b:Int) -> Int {
-//        return a+b
-//    }
-//
-//    func sub(_ a: Int, _ b:Int) -> Int {
-//        return a-b
-//    }
-//
-//    func mul(_ a: Int, _ b:Int) -> Int {
-//        return a*b
-//    }
-//
-//    func div(_ a: Int, _ b:Int) -> Int {
-//        if b != 0 {
-//            return a/b
-//        } else {
-//            return 42
-//        }
-//    }
-//
-//    typealias binOp = (Int, Int) -> Int
-//
-    // This keeps spitting out an error we cannot figure out
-//    let ops: [String: binOp] = ["+":add, "-":sub, "*":mul, "/":div]
-//
-//
-//    func doMath(_ a: Int, _ b: Int, _ op: String) -> Int {
-//        let opFunc = ops[op]
-//        return opFunc!(a, b)
-//    }
+    func add(_ a: Int, _ b:Int) -> Int {
+        return a+b
+    }
+
+    func sub(_ a: Int, _ b:Int) -> Int {
+        return a-b
+    }
+
+    func mul(_ a: Int, _ b:Int) -> Int {
+        return a*b
+    }
+
+    func div(_ a: Int, _ b:Int) -> Int {
+        if b != 0 {
+            return a/b
+        } else {
+            return 42
+        }
+    }
+
+    
+
+    
+
+
+    func doMath(_ a: Int, _ b: Int, _ op: String) -> Int {
+        typealias binOp = (Int, Int) -> Int
+        let ops: [String: binOp] = ["+":add, "-":sub, "*":mul, "/":div]
+        let opFunc = ops[op]
+        return opFunc!(a, b)
+    }
     
     
     
